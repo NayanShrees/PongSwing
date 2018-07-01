@@ -24,7 +24,6 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 		addKeyListener(this);
 		new Thread(this).start();
-
 	}
 
 	@Override
@@ -67,11 +66,11 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 				if(padT.isUp() == true && padT.getY() > 0){
 					padT.setY(padT.getY() - 15);
-				}else if(padT.isDown() == true && padT.getY() < 441){
+				}else if(padT.isDown() == true && padT.getY() < 440){
 					padT.setY(padT.getY() + 15);
 				}
 				repaint();
-				Thread.sleep(100);
+				Thread.sleep(40);
 			} catch(InterruptedException e) {
 				e.getMessage();
 				System.exit(0);
