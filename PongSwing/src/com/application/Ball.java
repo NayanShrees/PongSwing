@@ -10,12 +10,13 @@ public class Ball implements Runnable{
 	private BufferedImage image;
 	private int x;
 	private int y;
-	private int dx;
-	private int dy;
+	private double angle;
 
 	public Ball(){
 		this.x = 296;
 		this.y = 296;
+		dx = 0;
+		dy = 0;
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Ball.png"));
 		}catch(IOException e){
@@ -47,33 +48,16 @@ public class Ball implements Runnable{
 	@Override
 	public void run() {
 		Random random = new Random();
-		dx = 0; dy = 0;
-		while((dx == 0 || dy ==0) && (dx % 2 == 0 && dy % 2 == 0)){
-			dx = random.nextInt(16 + 1 + 16) - 16;
-			dy = random.nextInt(16 + 1 + 16) - 16;
-			System.out.println(dx + " " + dy);
+		while(angle == 0 || angle == 90 || angle == 180 || angle == 270 || angle == 360){
+			angle = random.nextInt(360 + 1);
 		}
-		System.out.println();
 		while(true) {
 			try {
-				bounce();
-				setX(getX() + dx);
-				setY(getY() + dy);
-				System.out.println(dx + " " + dy);
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.getMessage();
 				System.exit(0);
 			}
-		}
-	}
-
-	public void bounce(){
-		if (getY() == 0 || getY() == 591) {
-			dy = -dy;
-		}
-		if (getX() == 0 || getX() == 591) {
-			dx = -dx;
 		}
 	}
 }
