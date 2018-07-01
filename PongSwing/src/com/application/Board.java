@@ -20,40 +20,65 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 		padO = new Paddle(15,221);
 		padT = new Paddle(478,221);
-		ball = new Ball(246,246);
+		ball = new Ball();
 
 		addKeyListener(this);
 		new Thread(this).start();
+
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
+	}
 
-	}
-	public void run() {
-		
-	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_W && padO.getY() > 0){
-			padO.setY(padO.getY() - 15);
-		}else if(e.getKeyCode() == KeyEvent.VK_S && padO.getY() < 441){
-			padO.setY(padO.getY() + 15);
+		switch(e.getKeyCode()){
+			case KeyEvent.VK_W: padO.setUp(true); break;
+			case KeyEvent.VK_S: padO.setDown(true); break;
 		}
-
-		if(e.getKeyCode() == KeyEvent.VK_UP && padT.getY() > 0){
-			padT.setY(padT.getY() - 15);
-		}else if(e.getKeyCode() == KeyEvent.VK_DOWN && padT.getY() < 441){
-			padT.setY(padT.getY() + 15);
+		switch(e.getKeyCode()){
+			case KeyEvent.VK_UP: padT.setUp(true); break;
+			case KeyEvent.VK_DOWN: padT.setDown(true); break;
 		}
-
-		repaint();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		//leave
+		switch(e.getKeyCode()){
+			case KeyEvent.VK_W: padO.setUp(false); break;
+			case KeyEvent.VK_S: padO.setDown(false); break;
+		}
+		switch(e.getKeyCode()){
+			case KeyEvent.VK_UP: padT.setUp(false); break;
+			case KeyEvent.VK_DOWN: padT.setDown(false); break;
+		}
 	}
+
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				if(padO.isUp() == true && padO.getY() > 0){
+					padO.setY(padO.getY() - 15);
+				}else if(padO.isDown() == true && padO.getY() < 441){
+					padO.setY(padO.getY() + 15);
+				}
+
+				if(padT.isUp() == true && padT.getY() > 0){
+					padT.setY(padT.getY() - 15);
+				}else if(padT.isDown() == true && padT.getY() < 441){
+					padT.setY(padT.getY() + 15);
+				}
+				repaint();
+				Thread.sleep(100);
+			} catch(InterruptedException e) {
+				e.getMessage();
+				System.exit(0);
+			}
+		}
+	}
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

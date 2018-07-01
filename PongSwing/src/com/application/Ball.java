@@ -11,10 +11,9 @@ public class Ball {
 	private int y;
 
 
-	public Ball(int x, int y){
-		this.x = x;
-		this.y = y;
-
+	public Ball(){
+		this.x = 246;
+		this.y = 246;
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Ball.png"));
 		}catch(IOException e){

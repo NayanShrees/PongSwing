@@ -9,10 +9,14 @@ public class Paddle {
 	private BufferedImage image;
 	private int x;
 	private int y;
+	private boolean up;
+	private boolean down;
 
 	public Paddle(int x, int y){
 		this.x = x;
 		this.y = y;
+		up = false;
+		down = false;
 
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Pad.png"));
@@ -29,15 +33,27 @@ public class Paddle {
 		return x;
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
-
 	public int getY() {
 		return y;
 	}
 
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	public boolean isUp() {
+		return up;
+	}
+
+	public void setUp(boolean up) {
+		this.up = up;
+	}
+
+	public boolean isDown() {
+		return down;
+	}
+
+	public void setDown(boolean down) {
+		this.down = down;
 	}
 }
