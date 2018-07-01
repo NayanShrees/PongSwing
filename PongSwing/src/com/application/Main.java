@@ -15,6 +15,7 @@ public class Main extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Pong");
 		add(new Board());
+		pack();
 		setVisible(true);
 	}
 }
