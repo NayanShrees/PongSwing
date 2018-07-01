@@ -9,7 +9,7 @@ public class Main extends JFrame {
 	}
 
 	public void run(){
-		setSize(new Dimension(500,500));
+		setSize(new Dimension(600,600));
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);

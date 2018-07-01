@@ -12,15 +12,17 @@ public class Board extends JPanel implements KeyListener, Runnable{
 	private Ball ball;
 
 	public Board(){
-		setPreferredSize(new Dimension(500, 500));
+		setPreferredSize(new Dimension(600, 600));
 		setMaximumSize(getPreferredSize());
 		setBackground(Color.BLACK);
 		setFocusable(true);
 		requestFocusInWindow();
 
-		padO = new Paddle(15,221);
-		padT = new Paddle(478,221);
+		padO = new Paddle(15,271);
+		padT = new Paddle(578,271);
 		ball = new Ball();
+		add(new JLabel("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>"));
+		add(new JLabel("<html><font color='#FF0000'>Player 2: " + padT.getScore() + "</font></html>"));
 
 		addKeyListener(this);
 		new Thread(this).start();

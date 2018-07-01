@@ -14,8 +14,8 @@ public class Ball implements Runnable{
 	private int dy;
 
 	public Ball(){
-		this.x = 246;
-		this.y = 246;
+		this.x = 296;
+		this.y = 296;
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Ball.png"));
 		}catch(IOException e){
@@ -48,9 +48,9 @@ public class Ball implements Runnable{
 	public void run() {
 		Random random = new Random();
 		dx = 0; dy = 0;
-		while(dx == 0 || dy ==0){
-			dx = random.nextInt(20 + 1 + 20) - 20;
-			dy = random.nextInt(20 + 1 + 20) - 20;
+		while((dx == 0 || dy ==0) && (dx % 2 == 0 && dy % 2 == 0)){
+			dx = random.nextInt(16 + 1 + 16) - 16;
+			dy = random.nextInt(16 + 1 + 16) - 16;
 			System.out.println(dx + " " + dy);
 		}
 		System.out.println();
@@ -60,7 +60,7 @@ public class Ball implements Runnable{
 				setX(getX() + dx);
 				setY(getY() + dy);
 				System.out.println(dx + " " + dy);
-				Thread.sleep(200);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.getMessage();
 				System.exit(0);
@@ -69,16 +69,11 @@ public class Ball implements Runnable{
 	}
 
 	public void bounce(){
-		int temp = 0;
-		if(getY() == 0 || getY() == 491){
-			temp = dx;
-			dx = dy;
-			dy = temp;
+		if (getY() == 0 || getY() == 591) {
+			dy = -dy;
 		}
-		if(getX() == 0 || getX() == 491){
-			temp = dx;
-			dx = dy;
-			dy = temp;
+		if (getX() == 0 || getX() == 591) {
+			dx = -dx;
 		}
 	}
 }
