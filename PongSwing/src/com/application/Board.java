@@ -10,6 +10,8 @@ public class Board extends JPanel implements KeyListener, Runnable{
 	private Paddle padO;
 	private Paddle padT;
 	private Ball ball;
+	private JLabel playerO;
+	private JLabel playerT;
 
 	public Board(){
 		setPreferredSize(new Dimension(600, 600));
@@ -21,9 +23,11 @@ public class Board extends JPanel implements KeyListener, Runnable{
 		padO = new Paddle(15,271);
 		padT = new Paddle(578,271);
 		ball = new Ball();
-		add(new JLabel("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>"));
-		add(new JLabel("<html><font color='#FF0000'>Player 2: " + padT.getScore() + "</font></html>"));
+		playerO = new JLabel("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>");
+		playerT = new JLabel("<html><font color='#FF0000'>Player 2: " + padT.getScore() + "</font></html>");
 
+		add(playerO);
+		add(playerT);
 		addKeyListener(this);
 		new Thread(this).start();
 	}
@@ -85,6 +89,16 @@ public class Board extends JPanel implements KeyListener, Runnable{
 		super.paintComponent(g);
 		g.drawImage(padO.getImage(), padO.getX(),padO.getY(), this);
 		g.drawImage(padT.getImage(),padT.getX(), padT.getY(),this);
-		g.drawImage(ball.getImage(),ball.getX(),ball.getY(),this);
+		g.drawImage(ball.getImage(), (int) ball.getX(),(int)ball.getY(),this);
+	}
+
+	public void updateScore(){
+		padO.setScore(ball.getX() == 0 ? padO.getScore() + 1 : 0);
+		padT.setScore(ball.getX() == 591 ? padT.getScore() + 1 : 0);
+		playerO.setText("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>");
+		playerT.setText("<html><font color='#FF0000'>Player 2: " + padT.getScore() + "</font></html>");
+		System.out.println(padO.getScore() + " " + padT.getScore());
+		add(playerO);
+		add(playerT);
 	}
 }
