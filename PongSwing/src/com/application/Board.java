@@ -123,8 +123,8 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 	private void score(){
 		if((int) ball.getX() == 0 || (int) ball.getX() == 591){
-			padT.setScore((int) ball.getX() == 0 ? padO.getScore() + 1 : padO.getScore());
-			padO.setScore((int) ball.getX() == 591 ? padT.getScore() + 1 : padT.getScore());
+			padT.setScore((int) ball.getX() == 0 ? padT.getScore() + 1 : padT.getScore());
+			padO.setScore((int) ball.getX() == 591 ? padO.getScore() + 1 : padO.getScore());
 			ball.setX(296);
 			ball.setY(296);
 			padO.setY(271);
