@@ -73,6 +73,7 @@ public class Board extends JPanel implements KeyListener, Runnable{
 		while(true) {
 			collision();
 			score();
+			System.out.println((int) ball.getX() + " " + (int) ball.getY());
 			try {
 				if(padO.isUp() == true && padO.getY() > 0){
 					padO.setY(padO.getY() - 1);
@@ -104,21 +105,27 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 	private void collision(){
 		if((int) ball.getX() == padO.getX() + 7){
-			if(ball.getY() <= padO.getY() && ball.getY() >= padO.getY() + 12){
+			if(ball.getY() + 8 >= padO.getY() && ball.getY() <= padO.getY() + 12){
+				System.out.println("A");
 				ball.returnBounce();
-			}else if(ball.getY() >= padO.getY() + 58 && ball.getY() <= padO.getY() + 45){
+			}else if( ball.getY() >= padO.getY() + 13 && ball.getY() <= padO.getY() + 44){
+				System.out.println("C");
 				ball.straightBounce();
-			}else{
+			}else if(ball.getY() <= padO.getY() + 58 && ball.getY() >= padO.getY() + 45){
+				System.out.println("B");
 				ball.returnBounce();
 			}
 		}
 
-		if((int) ball.getX() +  8 == padT.getX()){
-			if(ball.getY() <= padO.getY() && ball.getY() >= padO.getY() + 12){
+		if(((int) ball.getX()) +  8 == padT.getX()){
+			if(ball.getY() + 8 >= padT.getY() && ball.getY() <= padT.getY() + 12){
+				System.out.println("A");
 				ball.returnBounce();
-			}else if(ball.getY() >= padO.getY() + 58 && ball.getY() <= padO.getY() + 45){
+			}else if( ball.getY() >= padT.getY() + 13 && ball.getY() <= padT.getY() + 44){
+				System.out.println("C");
 				ball.straightBounce();
-			}else{
+			}else if(ball.getY() <= padT.getY() + 58 && ball.getY() >= padT.getY() + 45){
+				System.out.println("B");
 				ball.returnBounce();
 			}
 		}

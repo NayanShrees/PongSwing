@@ -47,10 +47,11 @@ public class Ball implements Runnable{
 
 	@Override
 	public void run() {
-		randomAngle();
+		//randomAngle();
+		angle = 90;
 		while(true) {
 			try {
-				straightBounce();
+				wallBounce();
 				setY(getY() - Math.cos(Math.toRadians(angle)));
 				setX(getX() + Math.sin(Math.toRadians(angle)));
 				Thread.sleep(5);
@@ -69,13 +70,16 @@ public class Ball implements Runnable{
 		}
 	}
 
-	public void straightBounce(){
+	public void wallBounce(){
 		if(((int) getY() == 0 || (int) getY() == 591)){
-			angle = 180 + angle;
+			angle = 180 - angle;
 		}
 	}
 
+	public void straightBounce(){
+		angle = (angle - 180) + 2*(270 - angle);
+	}
 	public void returnBounce(){
-		angle = 180 + angle;
+		angle = 360 - angle;
 	}
 }
