@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efda863a-34f8-4940-bbbe-1d5d21e611bf" name="Default" comment="" />
+    <list default="true" id="93a237c0-d86d-4193-a5ad-1c6c5da5ab12" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/PongSwing.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongSwing/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PongSwing/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongSwing/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PongSwing/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongSwing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PongSwing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongSwing/PongSwing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PongSwing/PongSwing.iml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,8 +22,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="111" />
-    <option name="y" value="-24" />
+    <option name="x" value="130" />
+    <option name="y" value="19" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -23,6 +32,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -35,27 +47,14 @@
               <item name="PongSwing" type="462c0819:PsiDirectoryNode" />
               <item name="PongSwing" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="PongSwing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PongSwing" type="462c0819:PsiDirectoryNode" />
-              <item name="PongSwing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PongSwing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PongSwing" type="462c0819:PsiDirectoryNode" />
-              <item name="PongSwing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PongSwing" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -117,11 +116,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="efda863a-34f8-4940-bbbe-1d5d21e611bf" name="Default" comment="" />
-      <created>1530409166925</created>
+      <changelist id="93a237c0-d86d-4193-a5ad-1c6c5da5ab12" name="Default" comment="" />
+      <created>1530554842247</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1530409166925</updated>
+      <updated>1530554842247</updated>
     </task>
     <servers />
   </component>

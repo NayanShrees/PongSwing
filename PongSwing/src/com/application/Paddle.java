@@ -2,7 +2,6 @@ package com.application;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Paddle {
@@ -21,7 +20,7 @@ public class Paddle {
 		down = false;
 		score = 0;
 		try{
-			image = ImageIO.read(new File("./src/com/resources/Pad.png"));
+			image = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("com/resources/Pad.png"));
 		}catch(IOException e){
 			System.out.println("Failed to get image \n" + e.getMessage());
 		}

@@ -2,7 +2,6 @@ package com.application;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Ball{
@@ -17,7 +16,7 @@ public class Ball{
 		this.y = 296;
 
 		try{
-			image = ImageIO.read(new File("./src/com/resources/Ball.png"));
+			image = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("com/resources/Ball.png"));
 		}catch(IOException e){
 			System.out.println("Failed to get image \n" + e.getMessage());
 		}
