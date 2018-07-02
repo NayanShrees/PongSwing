@@ -34,8 +34,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/application/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="97" column="32" lean-forward="true" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+            <state relative-caret-position="479">
+              <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +46,8 @@
       <file leaf-file-name="Ball.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/application/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+            <state relative-caret-position="20">
+              <caret line="49" column="8" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#652#653#0" expanded="true" />
@@ -58,6 +58,8 @@
                 <element signature="e#799#800#0" expanded="true" />
                 <element signature="e#830#831#0" expanded="true" />
                 <element signature="e#847#848#0" expanded="true" />
+                <element signature="e#1455#1456#0" expanded="true" />
+                <element signature="e#1481#1482#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,9 +96,9 @@
         <option value="$PROJECT_DIR$/src/com/application/LoadAssets.java" />
         <option value="$PROJECT_DIR$/src/com/application/Assets.java" />
         <option value="$PROJECT_DIR$/src/com/application/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/application/Ball.java" />
         <option value="$PROJECT_DIR$/src/com/application/Paddle.java" />
         <option value="$PROJECT_DIR$/src/com/application/Board.java" />
+        <option value="$PROJECT_DIR$/src/com/application/Ball.java" />
       </list>
     </option>
   </component>
@@ -317,6 +319,8 @@
             <element signature="e#799#800#0" expanded="true" />
             <element signature="e#830#831#0" expanded="true" />
             <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -371,6 +375,8 @@
             <element signature="e#799#800#0" expanded="true" />
             <element signature="e#830#831#0" expanded="true" />
             <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -425,6 +431,8 @@
             <element signature="e#799#800#0" expanded="true" />
             <element signature="e#830#831#0" expanded="true" />
             <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -469,6 +477,8 @@
             <element signature="e#799#800#0" expanded="true" />
             <element signature="e#830#831#0" expanded="true" />
             <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -523,6 +533,8 @@
             <element signature="e#799#800#0" expanded="true" />
             <element signature="e#830#831#0" expanded="true" />
             <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -587,24 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/application/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/application/Paddle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -619,10 +613,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/application/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="49" column="8" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/application/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="97" column="32" lean-forward="true" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+        <state relative-caret-position="479">
+          <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

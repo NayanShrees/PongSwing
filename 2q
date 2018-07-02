@@ -1,0 +1,17 @@
+changed score code
+
+changed score and code base to be better compatible with the collision
+model
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   PongSwing/.idea/workspace.xml
+#	modified:   PongSwing/src/com/application/Ball.java
+#	modified:   PongSwing/src/com/application/Board.java
+#	modified:   PongSwing/src/com/application/Main.java
+#	modified:   PongSwing/src/com/application/Paddle.java
+#

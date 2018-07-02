@@ -71,6 +71,7 @@ public class Board extends JPanel implements KeyListener, Runnable{
 	@Override
 	public void run() {
 		while(true) {
+			collision();
 			score();
 			try {
 				if(padO.isUp() == true && padO.getY() > 0){
@@ -101,9 +102,30 @@ public class Board extends JPanel implements KeyListener, Runnable{
 		g.drawImage(ball.getImage(), (int) ball.getX(),(int)ball.getY(),this);
 	}
 
+	private void collision(){
+		if((int) ball.getX() == padO.getX() + 7){
+			if(ball.getY() <= padO.getY() && ball.getY() >= padO.getY() + 12){
+				ball.returnBounce();
+			}else if(ball.getY() >= padO.getY() + 58 && ball.getY() <= padO.getY() + 45){
+				ball.straightBounce();
+			}else{
+				ball.returnBounce();
+			}
+		}
+
+		if((int) ball.getX() +  8 == padT.getX()){
+			if(ball.getY() <= padO.getY() && ball.getY() >= padO.getY() + 12){
+				ball.returnBounce();
+			}else if(ball.getY() >= padO.getY() + 58 && ball.getY() <= padO.getY() + 45){
+				ball.straightBounce();
+			}else{
+				ball.returnBounce();
+			}
+		}
+	}
+
 	private void score(){
 		if((int) ball.getX() == 0 || (int) ball.getX() == 591){
-			System.out.println(padO.getScore() + " " + padT.getScore());
 			padO.setScore((int) ball.getX() == 0 ? padO.getScore() + 1 : padO.getScore());
 			padT.setScore((int) ball.getX() == 591 ? padT.getScore() + 1 : padT.getScore());
 			ball.setX(296);
