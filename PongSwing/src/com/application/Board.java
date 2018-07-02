@@ -23,8 +23,8 @@ public class Board extends JPanel implements KeyListener, Runnable{
 		padO = new Paddle(15,271);
 		padT = new Paddle(578,271);
 		ball = new Ball();
-		playerO = new JLabel("<html><font color='#FF0000'>Player 1: " + ball.getScoreO() + "</font></html>");
-		playerT = new JLabel("<html><font color='#FF0000'>Player 2: " + ball.getScoreT() + "</font></html>");
+		playerO = new JLabel("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>");
+		playerT = new JLabel("<html><font color='#FF0000'>Player 2: " + padO.getScore() + "</font></html>");
 		add(playerO);
 		add(playerT);
 		addKeyListener(this);
@@ -71,24 +71,21 @@ public class Board extends JPanel implements KeyListener, Runnable{
 	@Override
 	public void run() {
 		while(true) {
-			playerO.setText("<html><font color='#FF0000'>Player 1: " + ball.getScoreO() + "</font></html>");
-			playerT.setText("<html><font color='#FF0000'>Player 2: " + ball.getScoreT() + "</font></html>");
-			add(playerO);
-			add(playerT);
+			score();
 			try {
 				if(padO.isUp() == true && padO.getY() > 0){
-					padO.setY(padO.getY() - 15);
+					padO.setY(padO.getY() - 1);
 				}else if(padO.isDown() == true && padO.getY() < 541){
-					padO.setY(padO.getY() + 15);
+					padO.setY(padO.getY() + 1);
 				}
 
 				if(padT.isUp() == true && padT.getY() > 0){
-					padT.setY(padT.getY() - 15);
+					padT.setY(padT.getY() - 1);
 				}else if(padT.isDown() == true && padT.getY() < 541){
-					padT.setY(padT.getY() + 15);
+					padT.setY(padT.getY() + 1);
 				}
 				repaint();
-				Thread.sleep(40);
+				Thread.sleep(1);
 			} catch(InterruptedException e) {
 				e.getMessage();
 				System.exit(0);
@@ -102,5 +99,20 @@ public class Board extends JPanel implements KeyListener, Runnable{
 		g.drawImage(padO.getImage(), padO.getX(),padO.getY(), this);
 		g.drawImage(padT.getImage(),padT.getX(), padT.getY(),this);
 		g.drawImage(ball.getImage(), (int) ball.getX(),(int)ball.getY(),this);
+	}
+
+	private void score(){
+		if((int) ball.getX() == 0 || (int) ball.getX() == 591){
+			System.out.println(padO.getScore() + " " + padT.getScore());
+			padO.setScore((int) ball.getX() == 0 ? padO.getScore() + 1 : padO.getScore());
+			padT.setScore((int) ball.getX() == 591 ? padT.getScore() + 1 : padT.getScore());
+			ball.setX(296);
+			ball.setY(296);
+			ball.randomAngle();
+			playerO.setText("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>");
+			playerT.setText("<html><font color='#FF0000'>Player 2: " + padT.getScore() + "</font></html>");
+			add(playerO);
+			add(playerT);
+		}
 	}
 }

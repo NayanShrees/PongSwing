@@ -6,18 +6,20 @@ import java.io.File;
 import java.io.IOException;
 
 public class Paddle {
+
 	private BufferedImage image;
 	private int x;
 	private int y;
 	private boolean up;
 	private boolean down;
+	private int score;
 
 	public Paddle(int x, int y){
 		this.x = x;
 		this.y = y;
 		up = false;
 		down = false;
-
+		score = 0;
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Pad.png"));
 		}catch(IOException e){
@@ -55,5 +57,13 @@ public class Paddle {
 
 	public void setDown(boolean down) {
 		this.down = down;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 }
