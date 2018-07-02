@@ -11,14 +11,12 @@ public class Paddle {
 	private int y;
 	private boolean up;
 	private boolean down;
-	private int score;
 
 	public Paddle(int x, int y){
 		this.x = x;
 		this.y = y;
 		up = false;
 		down = false;
-		score = 0;
 
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Pad.png"));
@@ -57,13 +55,5 @@ public class Paddle {
 
 	public void setDown(boolean down) {
 		this.down = down;
-	}
-
-	public int getScore() {
-		return score;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
 	}
 }

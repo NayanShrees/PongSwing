@@ -11,10 +11,15 @@ public class Ball implements Runnable{
 	private double x;
 	private double y;
 	private double angle;
+	private int scoreO;
+	private int scoreT;
 
 	public Ball(){
 		this.x = 296;
 		this.y = 296;
+		scoreO = 0;
+		scoreT = 0;
+
 		try{
 			image = ImageIO.read(new File("./src/com/resources/Ball.png"));
 		}catch(IOException e){
@@ -41,6 +46,22 @@ public class Ball implements Runnable{
 
 	public void setY(double y) {
 		this.y = y;
+	}
+
+	public int getScoreO() {
+		return scoreO;
+	}
+
+	public void setScoreO(int scoreO) {
+		this.scoreO = scoreO;
+	}
+
+	public int getScoreT() {
+		return scoreT;
+	}
+
+	public void setScoreT(int scoreT) {
+		this.scoreT = scoreT;
 	}
 
 	@Override
@@ -72,10 +93,14 @@ public class Ball implements Runnable{
 			angle = 180 - angle;
 		}
 		if((int) getX() == 0 || (int) getX() == 591){
+			if((int) getX() == 0){
+				setScoreO(getScoreO() + 1);
+			}else{
+				setScoreT(getScoreT() + 1);
+			}
 			setX(296);
 			setY(296);
 			randomAngle();
-			new Board().updateScore();
 		}
 	}
 }
