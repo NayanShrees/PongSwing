@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 public class Board extends JPanel implements KeyListener, Runnable{
 
@@ -70,11 +71,14 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 	@Override
 	public void run() {
+		randomAngle();
 		while(true) {
 			collision();
 			score();
-			System.out.println((int) ball.getX() + " " + (int) ball.getY());
+			wallBounce();
 			try {
+				ball.setY(ball.getY() - Math.cos(Math.toRadians(ball.getAngle())));
+				ball.setX(ball.getX() + Math.sin(Math.toRadians(ball.getAngle())));
 				if(padO.isUp() == true && padO.getY() > 0){
 					padO.setY(padO.getY() - 1);
 				}else if(padO.isDown() == true && padO.getY() < 541){
@@ -87,7 +91,7 @@ public class Board extends JPanel implements KeyListener, Runnable{
 					padT.setY(padT.getY() + 1);
 				}
 				repaint();
-				Thread.sleep(1);
+				Thread.sleep(3);
 			} catch(InterruptedException e) {
 				e.getMessage();
 				System.exit(0);
@@ -105,43 +109,49 @@ public class Board extends JPanel implements KeyListener, Runnable{
 
 	private void collision(){
 		if((int) ball.getX() == padO.getX() + 7){
-			if(ball.getY() + 8 >= padO.getY() && ball.getY() <= padO.getY() + 12){
-				System.out.println("A");
-				ball.returnBounce();
-			}else if( ball.getY() >= padO.getY() + 13 && ball.getY() <= padO.getY() + 44){
-				System.out.println("C");
-				ball.straightBounce();
-			}else if(ball.getY() <= padO.getY() + 58 && ball.getY() >= padO.getY() + 45){
-				System.out.println("B");
-				ball.returnBounce();
+			if(ball.getY() + 8 >= padO.getY() && ball.getY() <= padO.getY() + 58){
+				straightBounce();
 			}
 		}
 
 		if(((int) ball.getX()) +  8 == padT.getX()){
-			if(ball.getY() + 8 >= padT.getY() && ball.getY() <= padT.getY() + 12){
-				System.out.println("A");
-				ball.returnBounce();
-			}else if( ball.getY() >= padT.getY() + 13 && ball.getY() <= padT.getY() + 44){
-				System.out.println("C");
-				ball.straightBounce();
-			}else if(ball.getY() <= padT.getY() + 58 && ball.getY() >= padT.getY() + 45){
-				System.out.println("B");
-				ball.returnBounce();
+			if(ball.getY() + 8 >= padT.getY() && ball.getY() <= padT.getY() + 58){
+				straightBounce();
 			}
 		}
 	}
 
 	private void score(){
 		if((int) ball.getX() == 0 || (int) ball.getX() == 591){
-			padO.setScore((int) ball.getX() == 0 ? padO.getScore() + 1 : padO.getScore());
-			padT.setScore((int) ball.getX() == 591 ? padT.getScore() + 1 : padT.getScore());
+			padT.setScore((int) ball.getX() == 0 ? padO.getScore() + 1 : padO.getScore());
+			padO.setScore((int) ball.getX() == 591 ? padT.getScore() + 1 : padT.getScore());
 			ball.setX(296);
 			ball.setY(296);
-			ball.randomAngle();
+			padO.setY(271);
+			padT.setY(271);
+			randomAngle();
 			playerO.setText("<html><font color='#FF0000'>Player 1: " + padO.getScore() + "</font></html>");
 			playerT.setText("<html><font color='#FF0000'>Player 2: " + padT.getScore() + "</font></html>");
 			add(playerO);
 			add(playerT);
 		}
+	}
+
+	public void randomAngle(){
+		Random random = new Random();
+		ball.setAngle(0);
+		while(ball.getAngle() == 0 || ball.getAngle() == 90 || ball.getAngle() == 180 || ball.getAngle() == 270 || ball.getAngle() == 360){
+			ball.setAngle(random.nextInt(360 + 1));
+		}
+	}
+
+	public void wallBounce(){
+		if(((int) ball.getY() == 0 || (int) ball.getY() == 591)){
+			ball.setAngle(180 - ball.getAngle());
+		}
+	}
+
+	public void straightBounce(){
+		ball.setAngle(360 - ball.getAngle());
 	}
 }

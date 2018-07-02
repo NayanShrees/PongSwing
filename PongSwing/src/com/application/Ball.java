@@ -4,9 +4,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 
-public class Ball implements Runnable{
+public class Ball{
 
 	private BufferedImage image;
 	private double x;
@@ -22,7 +21,6 @@ public class Ball implements Runnable{
 		}catch(IOException e){
 			System.out.println("Failed to get image \n" + e.getMessage());
 		}
-		new Thread(this).start();
 	}
 
 	public BufferedImage getImage() {
@@ -45,41 +43,11 @@ public class Ball implements Runnable{
 		this.y = y;
 	}
 
-	@Override
-	public void run() {
-		//randomAngle();
-		angle = 90;
-		while(true) {
-			try {
-				wallBounce();
-				setY(getY() - Math.cos(Math.toRadians(angle)));
-				setX(getX() + Math.sin(Math.toRadians(angle)));
-				Thread.sleep(5);
-			} catch (InterruptedException e) {
-				e.getMessage();
-				System.exit(0);
-			}
-		}
+	public double getAngle() {
+		return angle;
 	}
 
-	public void randomAngle(){
-		Random random = new Random();
-		this.angle = 0;
-		while(angle == 0 || angle == 90 || angle == 180 || angle == 270 || angle == 360){
-			angle = random.nextInt(360 + 1);
-		}
-	}
-
-	public void wallBounce(){
-		if(((int) getY() == 0 || (int) getY() == 591)){
-			angle = 180 - angle;
-		}
-	}
-
-	public void straightBounce(){
-		angle = (angle - 180) + 2*(270 - angle);
-	}
-	public void returnBounce(){
-		angle = 360 - angle;
+	public void setAngle(double angle) {
+		this.angle = angle;
 	}
 }
